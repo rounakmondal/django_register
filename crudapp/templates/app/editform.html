@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Bootstrap Example</title>
+  </head>
+  <body>
+
+    <!-- Example Code -->
+    <div class="cards"style="margin-left:50px;margin-right:50px; margin-top:10%;padding: 50px;">
+      <h3 class="text-center">Contact Form</h3>
+      <form action="{% url 'updatebaby' %}" method="post">
+        {% csrf_token %}
+    <div class="mb-3 p-10">
+        {% if editdata %}
+        <input type="hidden" name="id" value="{{ editdata.id }}">
+      <label for="exampleFormControlInput1" class="form-label">Name</label>
+      <input type="text" class="form-control" id="exampleFormControlInput1" name="fname" value="{{editdata.FirstName}}">
+    </div>
+    <div class="mb-3 p-10">
+      <label for="exampleFormControlInput1" class="form-label">Last Name</label>
+      <input type="text" class="form-control" id="exampleFormControlInput1" name="lname" value="{{editdata.LasttName}}">
+    </div>
+    <div class="mb-3 p-10">
+      <label for="exampleFormControlInput1" class="form-label">Email</label>
+      <input type="text" class="form-control" id="exampleFormControlInput1" name="email" value="{{editdata.email}}">
+    </div>
+    <div class="mb-3 p-10">
+      <label for="exampleFormControlInput1" class="form-label">phone</label>
+      <input type="text" class="form-control" id="exampleFormControlInput1" name="phone" value="{{editdata.phone}}">
+    </div>
+    <div class="mb-3 p-10">
+      <label for="exampleFormControlInput1" class="form-label">contact</label>
+      <input type="text" class="form-control" id="exampleFormControlInput1" name="contact" value="{{editdata.Contact}}">
+    </div>
+   
+    <div class="text-center">
+    <button class="btn btn-primary">update data</button>
+    </div>  
+    </form>
+    {% endif %}
+  </div>
+    <!-- End Example Code -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
